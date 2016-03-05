@@ -1,0 +1,175 @@
+<include file="Public:header" title="小助手后台管理-教务文案配置" />
+<!-- sidebar start -->
+<include file="Public:siderbar"/>
+<!-- sidebar end -->
+<!-- content start -->
+<div class="admin-content">
+
+    <div class="am-cf am-padding">
+        <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">教务查询文案配置</strong> / <small>Copy Setting</small></div>
+    </div>
+
+
+    <div class="am-g">
+        <div class="am-u-sm-12">
+            <table class="am-table am-table-striped am-table-hover table-main">
+                <thead>
+                <tr>
+                    <th class="am-hide-sm-only">类别</th>
+                    <th class="am-hide-sm-only">设置项</th>
+                    <th>key</th>
+                    <th>设置内容（value）</th>
+                    <th>管理</th>
+                </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td rowspan="2" class="am-text-middle am-hide-sm-only">课表</td>
+                        <td class="am-hide-sm-only">文案</td>
+                        <td>schedule_copy</td>
+                        <td>{:S('schedule_copy')}</td>
+                        <td>
+                            <button class="am-btn am-btn-default am-btn-xs edit-btn" data-id="schedule_copy" data-content="{:S('schedule_copy')}"><span class="am-icon-cog" ></span></button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="am-hide-sm-only">链接</td>
+                        <td>schedule_url</td>
+                        <td>{:S('schedule_url')}</td>
+                        <td>
+                            <button class="am-btn am-btn-default am-btn-xs edit-btn" data-id="schedule_url" data-content="{:S('schedule_url')}"><span class="am-icon-cog" ></span></button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td rowspan="2" class="am-text-middle am-hide-sm-only">考试</td>
+                        <td class="am-hide-sm-only">文案</td>
+                        <td>exam_copy</td>
+                        <td>{:S('exam_copy')}</td>
+                        <td>
+                            <button class="am-btn am-btn-default am-btn-xs edit-btn" data-id="exam_copy" data-content="{:S('exam_copy')}"><span class="am-icon-cog" ></span></button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="am-hide-sm-only">链接</td>
+                        <td>exam_url</td>
+                        <td>{:S('exam_url')}</td>
+                        <td>
+                            <button class="am-btn am-btn-default am-btn-xs edit-btn" data-id="exam_url" data-content="{:S('exam_url')}"><span class="am-icon-cog" ></span></button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td rowspan="2" class="am-text-middle am-hide-sm-only">补考</td>
+                        <td class="am-hide-sm-only">文案</td>
+                        <td>makeup_exam_copy</td>
+                        <td>{:S('makeup_exam_copy')}</td>
+                        <td>
+                            <button class="am-btn am-btn-default am-btn-xs edit-btn" data-id="makeup_exam_copy" data-content="{:S('makeup_exam_copy')}"><span class="am-icon-cog" ></span></button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="am-hide-sm-only">链接</td>
+                        <td>makeup_exam_url</td>
+                        <td>{:S('makeup_exam_url')}</td>
+                        <td>
+                            <button class="am-btn am-btn-default am-btn-xs edit-btn" data-id="makeup_exam_url" data-content="{:S('makeup_exam_url')}"><span class="am-icon-cog" ></span></button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td rowspan="2" class="am-text-middle am-hide-sm-only">成绩</td>
+                        <td class="am-hide-sm-only">文案</td>
+                        <td>grade_copy</td>
+                        <td>{:S('grade_copy')}</td>
+                        <td>
+                            <button class="am-btn am-btn-default am-btn-xs edit-btn" data-id="grade_copy" data-content="{:S('grade_copy')}"><span class="am-icon-cog" ></span></button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="am-hide-sm-only">链接</td>
+                        <td>grade_url</td>
+                        <td>{:S('grade_url')}</td>
+                        <td>
+                            <button class="am-btn am-btn-default am-btn-xs edit-btn" data-id="grade_url" data-content="{:S('grade_url')}"><span class="am-icon-cog" ></span></button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td rowspan="2" class="am-text-middle am-hide-sm-only">教室</td>
+                        <td class="am-hide-sm-only">文案</td>
+                        <td>free_classroom_copy</td>
+                        <td>{:S('free_classroom_copy')}</td>
+                        <td>
+                            <button class="am-btn am-btn-default am-btn-xs edit-btn" data-id="free_classroom_copy" data-content="{:S('free_classroom_copy')}"><span class="am-icon-cog" ></span></button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="am-hide-sm-only">链接</td>
+                        <td>free_classroom_url</td>
+                        <td>{:S('free_classroom_url')}</td>
+                        <td>
+                            <button class="am-btn am-btn-default am-btn-xs edit-btn" data-id="free_classroom_url" data-content="{:S('free_classroom_url')}"><span class="am-icon-cog" ></span></button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td rowspan="2" class="am-text-middle am-hide-sm-only">四六级</td>
+                        <td class="am-hide-sm-only">文案</td>
+                        <td>rank_exam_copy</td>
+                        <td>{:S('rank_exam_copy')}</td>
+                        <td>
+                            <button class="am-btn am-btn-default am-btn-xs edit-btn" data-id="rank_exam_copy" data-content="{:S('rank_exam_copy')}"><span class="am-icon-cog" ></span></button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="am-hide-sm-only">链接</td>
+                        <td>rank_exam_url</td>
+                        <td>{:S('rank_exam_url')}</td>
+                        <td>
+                            <button class="am-btn am-btn-default am-btn-xs edit-btn" data-id="rank_exam_url" data-content="{:S('rank_exam_url')}"><span class="am-icon-cog" ></span></button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <hr />
+            <p>注：广告<span style="color: red;">必须填写文案</span>，否则不会显示，但是可不填写链接！</p>
+        </div>
+    </div>
+</div>
+
+
+<!--修改文案的弹出框-->
+<div class="am-modal am-modal-prompt" tabindex="-1" id="edit-prompt">
+    <div class="am-modal-dialog">
+        <div class="am-modal-hd">请输入要修改成的内容</div>
+        <div class="am-modal-bd">
+            <!--<input type="text" class="am-modal-prompt-input">-->
+            <textarea name="input"  cols="10" rows="5" class="am-modal-prompt-input"></textarea>
+        </div>
+        <div class="am-modal-footer">
+            <span class="am-modal-btn" data-am-modal-cancel>取消</span>
+            <span class="am-modal-btn" data-am-modal-confirm>提交</span>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    var setUrl = "{:U('Jiaowu/handleCopy')}";
+    $(function() {
+        $(".edit-btn").on('click', function(e) {
+            var content = $(this).attr('data-content');
+            $('.am-modal-bd').find('textarea').html(content);
+
+            $('#edit-prompt').modal({
+                relatedTarget: this,
+                onConfirm: function(e) {
+                    var key = $(this.relatedTarget).data('id');
+                    $.post(setUrl,{key:key,content:e.data},function(data){
+                    });
+                    location.reload();
+                },
+                onCancel: function(e) {
+//                    alert('算了，不设置了!');
+                }
+            });
+        });
+    });
+</script>
+<!-- content end -->
+<include file="Public:footer" />

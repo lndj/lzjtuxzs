@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>兰州交通大学小助手 | 网页前端测试</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <link rel="icon" type="ico" href="__PUBLIC__/i/favicon.ico">
+    <link rel="stylesheet" href="__PUBLIC__/css/amazeui.min.css"/>
+    <!--<link rel="stylesheet" href="__PUBLIC__/css/admin.css"/>-->
+    <style>
+        .header {
+            text-align: center;
+        }
+        .header h1 {
+            font-size: 200%;
+            color: #333;
+            margin-top: 10px;
+        }
+        .header p {
+            font-size: 14px;
+        }
+        .reply-btn{
+            display: inline;
+        }
+        .reply_form{
+            margin-top: 35px;
+        }
+        .reply_content{
+            margin-left: 10px;
+            font-size: 80%;
+            /*background-color: #c1c1c1;*/
+        }
+        .reply_user{
+            color: #009cda;
+            font-size: 100%;
+        }
+        .main-back {
+            /*background: #f3f3f3;*/
+        }
+        .new-content-menu {
+            position: fixed;
+            z-index: 10;
+            bottom: 30px;
+            right: 20px;
+        }
+        .new-show-thumbnail{
+            width: 80px;
+            height: 80px;
+        }
+        #imgPicker{
+            margin-bottom: 20px;
+        }
+        .am-icon-mars{
+            color: #dd514c;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <div class="header main-back">
+        <div class="am-g">
+            <h1>测试网页</h1>
+            <p>Say something you want.</p>
+        </div>
+        <hr />
+    </div>
+</header>
+
+
+
+<div class="am-g main-back content-container">
+
+    <div class="am-container">
+        <!--$().alert('close')-->
+        <div class="am-alert am-alert-success alert-new-message" style="display: none;" data-am-alert>
+            <button type="button" class="am-close">&times;</button>
+            <p>你有3条新消息。</p>
+        </div>
+    </div>
+
+
+    <div class="am-u-sm-12 am-u-md-6 am-u-lg-4">
+        <div class="am-thumbnail">
+
+            <div class="am-thumbnail-caption">
+                <div class="am-cf">
+                    <span class="am-icon-mars am-fl am-text-truncate">&nbsp;</span>Mr_L
+                    <small class="am-fr publish-time">10分钟</small>
+                </div>
+
+                <p>这就是一段话，啥都可以，貌似这个玩意<br/>儿很<br/>好玩<br/>的啊，以前怎么没发现～</p>
+
+            </div>
+
+            <img src="http://i12.tietuku.com/08f5a2a255baa64cs.jpg" alt=""/>
+
+            <div class="am-thumbnail-caption">
+
+
+                <div class="am-cf">
+                    <span class="am-icon-thumbs-up am-fr praise-btn" type="1" data-id="1">19</span>
+                    <span class="am-icon-thumbs-o-down am-fr trample-btn" type="0" data-id="1">11&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                    <div class="reply-btn am-fr">回复&nbsp;&nbsp;&nbsp;&nbsp;</div>
+
+                    <div style="display: none;" class="reply_form">
+                        <form action="" class="am-form" data-am-validator>
+                            <div class="am-form-group">
+                                <input type="text" name="reply-name" placeholder="昵称" minlength="1" maxlength="10" required/>
+                            </div>
+                            <div class="am-form-group">
+                                <textarea rows="5" id="doc-ta-1" name="reply-content" placeholder="想说点什么呢？"></textarea>
+                            </div>
+                            <p><button type="button" class="am-btn am-btn-default am-btn-sm am-round am-fr reply-submit"  data-id="1">回复</button></p>
+                        </form>
+                    </div>
+
+                </div>
+
+                <hr />
+                <div class="reply_content">
+                    <blockquote>
+                        <p><span class="reply_user">Dujia</span>:&nbsp;这是我的回三十但是第三方是方式的的分手分手分手时发生方式复内容哈哈哈</p>
+                        <small>10分钟前</small>
+                    </blockquote>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="am-u-sm-12 am-u-md-6 am-u-lg-4 am-u-end">
+        <div class="am-thumbnail">
+
+            <div class="am-thumbnail-caption">
+                <div class="am-cf">
+                    <span class="am-icon-mars am-fl">&nbsp;</span>Mr_Laaa
+                    <small class="am-fr publish-time">10分钟</small>
+                </div>
+
+                <p>这就是一段话，啥都可以，貌似这个玩意儿很好玩<的啊，以前怎么没发现～</p>
+
+                <div class="am-cf">
+                    <span class="am-icon-thumbs-o-up am-fr praise-btn" type="0" data-id="2">19</span>
+                    <span class="am-icon-thumbs-o-down am-fr trample-btn" type="0" data-id="2">11&nbsp;&nbsp;&nbsp;&nbsp;</span><span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                    <div class="reply-btn am-fr">回复&nbsp;&nbsp;&nbsp;&nbsp;</div>
+
+                    <div style="display: none;" class="reply_form">
+                        <form action="" class="am-form">
+                            <div class="am-form-group">
+                                <input type="text" name="reply-name" placeholder="昵称" minlength="1" maxlength="10" required/>
+                            </div>
+                            <div class="am-form-group">
+                                <textarea rows="5" id="doc-ta-1" name="reply-content" placeholder="想说点什么呢？"></textarea>
+                            </div>
+                            <p><button type="button" class="am-btn am-btn-default am-btn-sm am-round am-fr reply-submit" data-id="2">回复</button></p>
+                        </form>
+                    </div>
+
+                </div>
+                <hr />
+                <div class="reply_content">
+                    <blockquote>
+                        <p><span class="reply_user">Dujia</span>:&nbsp;这是我的回复内容哈哈哈</p>
+                        <small>20分钟前</small>
+                    </blockquote>
+                    <blockquote>
+                        <p><span class="reply_user">Jia_Du</span>:&nbsp;这是我的回复内容哈哈哈啦啦啦～</p>
+                        <small>1小时前</small>
+                    </blockquote>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!--写状态的按钮-->
+<a href="#" class=" new-content-menu" data-am-modal="{target: '#new-content-popup'}">
+    <span class="am-icon-btn am-icon-pencil-square-o"></span>
+</a>
+<!--弹出发布新内容-->
+<div class="am-popup" id="new-content-popup">
+    <div class="am-popup-inner">
+        <div class="am-popup-hd">
+            <h4 class="am-popup-title">发表新状态</h4>
+      <span data-am-modal-close
+            class="am-close">&times;</span>
+        </div>
+        <div class="am-popup-bd">
+
+            <div class="am-g">
+                <div class="am-u-md-12  am-u-sm-12 am-u-lg-12 am-u-sm-centered">
+                    <form class="am-form">
+                        <fieldset class="am-form-set">
+                            <input type="text" name="new-name" placeholder="昵称" minlength="1" maxlength="10" required/>
+                            <textarea name="new-content" id="new-content" rows="8" placeholder="说点什么..."></textarea>
+                        </fieldset>
+                    </form>
+
+                    <div class="am-g" id="imgShow">
+
+                    </div>
+                    <span class="am-icon-image am-icon-lg" id="imgPicker">添加图片</span>
+
+                    <button type="button" id="submit-btn" class="am-btn am-btn-primary am-btn-block">发表</button>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<include file="Public:alert" id="praise-trample-all" title="温馨提示" content="不能同时点赞和点踩哦~" />
+
+
+<script src="//libs.useso.com/js/jquery/2.1.1/jquery.min.js"></script>
+<script src="__PUBLIC__/js/amazeui.min.js"></script>
+<script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+
+
+<script type="text/javascript">
+
+    //微信JSSDK配置
+    wx.config({
+//            debug:true,
+        appId:'{$signPackage.appId}',
+        timestamp:{$signPackage.timestamp},
+        nonceStr:'{$signPackage.nonceStr}',
+        signature:'{$signPackage.signature}',
+        jsApiList:[
+            'chooseImage',
+            'previewImage',
+            'uploadImage',
+            'downloadImage',
+        ]
+    });
+
+    //微信JsSDK上传图片
+    var serverId = '';
+
+    //显示图片的SRC
+    var localIds = '';
+
+    var uid = {$uid};
+
+    var praiseUrl =  "{:U('Test/praise')}";
+    var trampleUrl = "{:U('Test/trample')}";
+    var replyUrl = '{:U("Test/reply")}';
+
+    //定义一下点击回复表单的时候的this，方便ajax完成后的操作
+    var reply = null;
+    //引入localStorage
+    var store = $.AMUI.store;
+    //localStorage 点赞
+    var self_praise_type = null;
+    var self_trample_type = null;
+
+    var self_reply_name = null;
+    var self_reply_content = null;
+
+    //点赞或者点踩的ajax
+    function ajax_praise_trample(url,content_id,type){
+
+        $.post(url,{content_id:content_id,type:type,uid:uid},function(data){
+            console.log(data);
+            if( data.status == 1 ){
+
+            }
+        });
+    }
+
+
+    $(function(){
+        //点击回复按钮事件
+        $('.content-container').on('click','.reply-btn',function () {
+            $(this).next().toggle(300);
+        });
+
+        //点击隐藏表单显示后的回复按钮事件
+        $('.content-container').on('click','.reply-submit',function () {
+            //首先显示回复内容上面的细线
+            $(this).closest('.am-cf').next().show();
+
+            //获取输入的表单值
+            var input = $(this).closest('.am-form').children();
+
+            var input_name = $ ( input[0] ).children().val();
+            var input_content = $ ( input[1] ).children().val();
+
+            //输入空判断
+            if(input_name == ''){
+                $ ( input[0] ).children().focus();
+                return;
+            }
+            if(input_content == ''){
+                $ ( input[1] ).children().focus();
+                return;
+            }
+            var reply_content = '<blockquote><p><span class="reply_user">' + input_name +
+                    '</span>:&nbsp;' + input_content +
+                    '</p><small>发布中...</small></blockquote>';
+
+            //添加回复内容
+            $(this).closest('.am-cf').nextAll('.reply_content').prepend(reply_content);
+            //清除输入的内容
+            $ ( input[1] ).children().val('');
+
+            //隐藏表单
+            $(this).closest('.reply_form').hide(300);
+
+            //保存this
+            reply = this;
+            //更新全局昵称
+            $('.reply_form').find( 'input[name=reply-name]' ).attr( 'value',input_name );
+            $('#new-content-popup').find( '.am-popup-bd' ).find( 'input[name=new-name]' ).attr( 'value',input_name );
+
+            //刚刚点击发布，自己给自己回复的情况
+            //等发布的ajax完成后再ajax传输点赞
+            var content_id = $(reply).data('id');
+            console.log(content_id);
+            if( content_id == undefined ){
+                //判断下是否支持localStorage
+                if (!store.enabled) {
+                    alert('Local storage is not supported by your browser. Please disable "Private Mode", or upgrade to a modern browser.');
+                    return;
+                }
+                self_reply_name = store.set('self_reply_name',input_name);
+                self_reply_content = store.set('self_reply_content',input_content);
+                return;
+            }
+            //ajax上传
+            $.post(replyUrl,{input_name:input_name,input_content:input_content,content_id:content_id,uid:uid},function(data){
+                console.log(data);
+                if( data.status == 1){
+                    //发布成功后将发布中改为刚刚
+                    var blockquote = $(reply).closest('.am-cf').nextAll('.reply_content').children();
+                    $(blockquote[0]).find('small').text('刚刚');
+                }
+            });
+
+        });
+
+        //点击赞按钮
+        $('.content-container').on('click','.praise-btn',function () {
+            //点赞的时候，首先给+1，改变状态，
+            //增加type属性去判断是否点赞了  1 已经点赞，0没有点赞
+            //post 内容id 和 type（赞还是取消赞）
+            //返回数据库查询的赞数字，更新数字
+            //为防止刷新  type属性在控制器赋值
+
+
+            var praise = $(this);
+            //处理不能同时点赞或者点踩
+            if( praise.next().attr('type') == 1 ){
+//                alert('您不是已经点了踩了么？');
+                $('#praise-trample-all').modal();
+                return;
+            }
+
+            //目前的点赞数
+            var praise_num = praise.text();
+            //解决非数字的问题
+            if( isNaN( praise_num ) ){
+                praise_num = 0;
+            }
+            praise_num = parseInt( praise_num );
+
+            var type = praise.attr('type');
+
+            //已经点赞的情况,此时点赞书-1
+            if( type == 1 &&  praise_num != 0){
+                var praise_num_reduce = praise_num - 1;
+                //若变为0的情况，则改为显示赞
+                if( praise_num_reduce == 0 ){
+                    praise_num_reduce = '赞';
+                }
+                praise.text(praise_num_reduce);
+                //改变type属性值
+                praise.attr('type',0);
+
+                //更新按钮状态
+                praise.removeClass('am-icon-thumbs-up');
+                praise.addClass('am-icon-thumbs-o-up');
+            }else{
+                //此时点赞 +1
+                var praise_num_plus = praise_num + 1;
+                praise.text(praise_num_plus);
+                praise.attr('type',1);
+
+                praise.removeClass('am-icon-thumbs-o-up');
+                praise.addClass('am-icon-thumbs-up');
+            }
+           //TODO 此时ajax上传
+            var type_new = praise.attr('type');
+            var content_id = praise.data('id');
+
+            //刚刚点击发布，自己给自己点赞的情况
+            //等发布的ajax完成后再ajax传输点赞
+            if( content_id == undefined ){
+                //判断下是否支持localStorage
+                if (!store.enabled) {
+                    alert('Local storage is not supported by your browser. Please disable "Private Mode", or upgrade to a modern browser.');
+                    return;
+                }
+                //一种情况就是点了赞，没有后续操作
+                //另一种，点赞之后，ajax还未完成的时候又点了取消点赞，此时不再进行ajax
+                self_praise_type = store.set('self_praise_type',type_new);
+                if( type_new == 0 ){
+                    self_praise_type = null;
+                }
+                return;
+            }
+
+            ajax_praise_trample(praiseUrl,content_id,type_new);
+        });
+
+        //点踩按钮
+        $('.content-container').on('click','.trample-btn',function () {
+            var trample = $(this);
+
+            if( trample.prev().attr('type') == 1 ){
+//                alert('您不是已经点了赞了么？');
+                $('#praise-trample-all').modal();
+                return;
+            }
+
+
+            //目前的点踩数
+            var trample_num = trample.text();
+            //解决非数字的问题
+            if( isNaN( trample_num ) ){
+                trample_num = 0;
+            }
+            trample_num = parseInt( trample_num );
+
+            var type = trample.attr('type');
+
+            //已经点踩的情况,此时点踩-1
+            if( type == 1 &&  trample_num != 0){
+                var praise_num_reduce = trample_num - 1;
+                //若变为0的情况，则改为显示踩
+                if( praise_num_reduce == 0 ){
+                    praise_num_reduce = "踩";
+                }
+                trample.html(praise_num_reduce + "&nbsp;&nbsp;&nbsp;&nbsp;");
+                //改变type属性值
+                trample.attr('type',0);
+
+                //更新按钮状态
+                trample.removeClass('am-icon-thumbs-down');
+                trample.addClass('am-icon-thumbs-o-down');
+            }else{
+                //此时点踩 +1
+                var praise_num_plus = trample_num + 1;
+                trample.html(praise_num_plus  + "&nbsp;&nbsp;&nbsp;&nbsp;");
+                trample.attr('type',1);
+
+                trample.removeClass('am-icon-thumbs-o-down');
+                trample.addClass('am-icon-thumbs-down');
+            }
+            var type_new = trample.attr('type');
+            var content_id = trample.data('id');
+
+            //刚刚点击发布，自己给自己点赞的情况
+            //等发布的ajax完成后再ajax传输点赞
+            if( content_id == undefined ){
+                //判断下是否支持localStorage
+                if (!store.enabled) {
+                    alert('Local storage is not supported by your browser. Please disable "Private Mode", or upgrade to a modern browser.');
+                    return;
+                }
+                //一种情况就是点了踩，没有后续操作
+                //另一种，点踩之后，ajax还未完成的时候又点了取消点踩，此时不再进行ajax
+                self_trample_type = store.set('self_trample_type',type_new);
+                if( type_new == 0 ){
+                    self_trample_type = null;
+                }
+                return;
+            }
+            //ajax传输
+            ajax_praise_trample(trampleUrl,content_id,type_new);
+        });
+
+        //添加图片
+        $('#imgPicker').on('click', function () {
+            wx.chooseImage({
+                count: 1, // 默认9
+                sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
+                sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
+                success: function (res) {
+                    localIds = res.localIds; // 返回选定照片的本地ID列表，localId可以作为img标签的src属性显示图片
+                    //显示
+                    $('#imgShow').append('<div class="am-u-sm-4 am-u-end" id="new-img-container"><img class="am-thumbnail new-show-thumbnail" src="' + localIds[0] + '"  alt=""/></div>');
+                    wx.uploadImage({
+                        localId: localIds[0], // 需要上传的图片的本地ID，由chooseImage接口获得
+                        isShowProgressTips: 1, // 默认为1，显示进度提示
+                        success: function (res) {
+                            serverId = res.serverId; // 返回图片的服务器端ID
+                            //隐藏添加图片的按钮
+                            $('#imgPicker').toggle();
+                        }
+                    });
+                }
+            });
+        });
+        //发布内容的按钮
+        $('#submit-btn').on('click', function () {
+            var publishUrl = "{:U('Test/publish')}";
+
+            var name_new = $( 'input[name=new-name]' );
+            var content_new = $( 'textarea[name=new-content]' );
+
+            if (name_new.val() == '') {
+                //为空的状态
+
+                name_new.focus();
+                return;
+            }
+            if (content_new.val() == '') {
+                $('#my-alert_jwid').modal();
+                content_new.focus();
+                return;
+            }
+
+            //TODO 用户关闭网页是提示还未传输完成
+
+            //首先关闭Popup
+            $('#new-content-popup').modal('close');
+
+            var content_dom = '<div class="am-u-sm-12 am-u-md-6 am-u-lg-4">';
+            content_dom += '<div class="am-thumbnail"><div class="am-thumbnail-caption"><div class="am-cf">';
+
+            //此处的性别图标可以放在控制器里面
+            content_dom += '<span class="am-icon-{$user_sex_icon} am-fl">&nbsp;</span>';
+            content_dom += name_new.val();
+
+            content_dom += '<small class="am-fr publish-time">发布中...</small></span></div><p>';
+            content_dom += content_new.val();
+            content_dom += '</p></div>';
+
+            if(serverId != ''){
+                content_dom += '<img src="' + localIds[0] + '" alt=""/>';
+            }
+            content_dom += '<div class="am-thumbnail-caption"><div class="am-cf"><span class="am-icon-thumbs-o-up am-fr praise-btn" type="0">赞</span>';
+            content_dom += '<span class="am-icon-thumbs-o-down am-fr trample-btn" type="0">踩&nbsp;&nbsp;&nbsp;&nbsp;</span>';
+            content_dom += '<div class="reply-btn am-fr">回复&nbsp;&nbsp;&nbsp;&nbsp;</div>';
+            content_dom += '<div style="display: none;" class="reply_form"><form action="" class="am-form"><div class="am-form-group">';
+            content_dom += '<input type="text" name="reply-name" placeholder="昵称" minlength="1" maxlength="10" required/>';
+            content_dom += '</div><div class="am-form-group"><textarea rows="5" id="doc-ta-1" name="reply-content" placeholder="想说点什么呢？"></textarea>';
+            content_dom += '</div><p><button type="button" class="am-btn am-btn-default am-btn-sm am-round am-fr reply-submit">回复</button></p>';
+            content_dom += '</form></div></div><hr style="display: none;" /> <div class="reply_content"></div></div></div></div>';
+
+            //插入DOM
+            $('.content-container').prepend(content_dom);
+
+            //显示添加图片按钮
+            if( serverId != '' ){
+                $('#imgPicker').toggle();
+            }
+
+            //写入全局的昵称
+            $('.reply_form').find('input[name=reply-name]').attr('value',name_new.val());
+
+
+            $.post(publishUrl,{name_new:name_new.val(),content_new:content_new.val(),uid:uid,server_id:serverId},function(data){
+                console.log(data);
+                if( data.status == 1){
+                    //此时发布成功，更改发布中为刚刚
+                    //刚刚发布时候，DOM为content-container下第一个
+                    var container = $( '.content-container' ).children()[0];
+                    $(container).find('.publish-time').text('刚刚');
+
+                    //此时获得了数据库的id值，插入DOM
+                    $(container).find('.praise-btn').attr('data-id',data.id);
+                    $(container).find('.trample-btn').attr('data-id',data.id);
+                    $(container).find('.reply-submit').attr('data-id',data.id);
+
+                    //检测localStorage 有的话进行ajax传输
+                    //点赞
+                    if( self_praise_type != null ){
+                        $.post(praiseUrl,{content_id:data.id,type:1,uid:uid},function(data){
+                            console.log(data);
+                            //TODO 忘了还需要干啥了
+                            if( data.status == 1 ){
+                                //清除localStorage
+                                self_praise_type = null;
+                                store.remove('self_praise_type');
+                            }
+                        });
+                    }
+                    //点踩
+                    if( self_trample_type != null ){
+                        $.post(trampleUrl,{content_id:data.id,type:1,uid:uid},function(data){
+                            console.log(data);
+                            if( data.status == 1 ){
+                                //清除localStorage
+                                self_trample_type = null;
+                                store.remove('self_trample_type');
+                            }
+                        });
+                    }
+                    //回复
+                    if( self_reply_content != null && self_reply_name != null ){
+                        $.post(replyUrl,{input_name:self_reply_name,input_content:self_reply_content,content_id:data.id,uid:uid},function(data){
+                            console.log(data);
+                            if( data.status == 1 ){
+
+                                //发布成功后将发布中改为刚刚
+                                var blockquote = $(reply).closest('.am-cf').nextAll('.reply_content').children();
+                                $(blockquote[0]).find('small').text('刚刚');
+
+                                //清除localStorage
+                                self_reply_content = null;
+                                self_reply_name = null;
+                                store.remove('self_reply_name');
+                                store.remove('self_reply_content');
+                            }
+                        });
+                    }
+
+                }else{
+                    alert('Something wrong!Please try agin leter!');
+                }
+            });
+
+            //清除之前输入的
+            $("#new-content").val('');
+            $('#new-img-container').remove();
+            content_dom = '';
+            serverId = '';
+            localIds = '';
+
+
+        });
+    });
+
+</script>
+
+</body>
+</html>

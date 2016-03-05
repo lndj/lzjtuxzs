@@ -1,0 +1,89 @@
+<!doctype html>
+<html class="no-js">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="小助手用户反馈在线回复网页版">
+    <meta name="keywords" content="反馈,兰州交通大学小助手">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>小助手用户反馈在线回复</title>
+    <!-- Set render engine for 360 browser -->
+    <meta name="renderer" content="webkit">
+    <!-- No Baidu Siteapp-->
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+    <link rel="icon" type="image/png" href="__PUBLIC__/i/favicon.ico">
+    <link rel="stylesheet" href="__PUBLIC__/css/amazeui.min.css">
+</head>
+<body>
+
+<div class="am-panel am-panel-default">
+    <div class="am-panel-hd">用户反馈内容</div>
+    <div class="am-panel-bd">
+        {$message}
+    </div>
+</div>
+
+<h4>回复用户：</h4>
+
+<div class="am-g">
+    <div class="am-u-md-8 am-u-sm-centered">
+        <form class="am-form" id="feedback">
+            <fieldset class="am-form-set">
+                <textarea class="" rows="8" id="message" name="message"></textarea>
+            </fieldset>
+            <button type="button" class="am-btn am-btn-primary am-btn-block" id="submit_btn">提交</button>
+        </form>
+    </div>
+</div>
+
+
+<!--弹出模拟alert start-->
+<include file="Public:alert" title="温馨提示" content="发生一点错误，请再试一次～"  id="my-alert_err"/>
+<include file="Public:alert" title="温馨提示" content="已经成功回复给用户。"  id="my-alert"/>
+<include file="Public:alert" title="缺少内容" content="说点什么吧！"  id="my-alert_message"/>
+<!--模拟alert end-->
+
+<!--Modal Loading start-->
+<include file="Public:loading" content="正在提交..."  id="my-modal-loading"/>
+<!--Modal Loading end-->
+
+
+<!--[if (gte IE 9)|!(IE)]><!-->
+<script src="__PUBLIC__/js/jquery.min.js"></script>
+<!--<![endif]-->
+<!--[if lte IE 8 ]>
+<script src="http://libs.baidu.com/jquery/1.11.3/jquery.min.js"></script>
+<script src="http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js"></script>
+<script src="__PUBLIC__/js/amazeui.ie8polyfill.min.js"></script>
+<![endif]-->
+<script src="__PUBLIC__/js/amazeui.min.js"></script>
+
+<script type="text/javascript">
+    var url = "{:U('Index/feedbackHandle')}";
+    var message = $( 'textarea[name=message]' );
+    $(function(){
+        $('#submit_btn').on('click', function () {
+            if (message.val() == '') {
+                $('#my-alert_message').modal();
+                message.focus();
+                return;
+            }
+            $('#my-modal-loading').modal();
+            $.post(url,{message:message.val()},function(data){
+                console.log(data);
+                if(data.status == 1){
+                    $('#my-modal-loading').modal('close');
+                    $('#my-alert').modal();
+                    //reset表单
+                    $('#feedback')[0].reset();
+                }else{
+                    $('#my-modal-loading').modal('close');
+                    $('#my-alert_err').modal();
+                }
+            });
+        })
+    })
+</script>
+
+</body>
+</html>

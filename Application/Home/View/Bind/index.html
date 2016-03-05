@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>兰州交通大学小助手 | 教务绑定</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <link rel="icon" type="ico" href="__PUBLIC__/i/favicon.ico">
+    <link rel="stylesheet" href="__PUBLIC__/css/amazeui.min.css"/>
+    <style>
+        .header {
+            text-align: center;
+        }
+        .header h1 {
+            font-size: 200%;
+            color: #333;
+            margin-top: 20px;
+        }
+        .header p {
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+<div class="header">
+    <div class="am-g">
+        <h1>教务系统绑定</h1>
+        <p>Bind your Wechat to the lzjtuhand.</p>
+    </div>
+    <hr />
+</div>
+<div class="am-g">
+    <div class="am-u-lg-6 am-u-md-8 am-u-sm-centered">
+
+        <form class="am-form">
+            <label for="tel">学号:</label>
+            <input type="text" name="jwid" id="jwid" value="">
+            <br>
+            <label for="password">教务密码:</label>
+            <input type="password" name="jwpwd" id="jwpwd" value="">
+            <br>
+        </form>
+        <button type="button" id="submit_btn" class="am-btn am-btn-success am-btn-block">绑    定</button>
+
+        <br />
+        <hr>
+        <p>©2015 兰州交通大学小助手 All Rights Reserved.</p>
+    </div>
+</div>
+
+<!--弹出模拟alert start-->
+<include file="Public:alert" title="温馨提示" content="发生一点错误，请再试一次～"  id="my-alert_err"/>
+<include file="Public:alert" title="温馨提示" content="网络错误，请再试一次～"  id="my-alert_err_net"/>
+<include file="Public:alert" title="温馨提示" content="您已经绑定成功,正在获取您的教务数据中..."  id="my-alert"/>
+<include file="Public:alert" title="缺少内容" content="学号都没写！"  id="my-alert_jwid"/>
+<include file="Public:alert" title="缺少内容" content="密码去哪了？"  id="my-alert_jwpwd"/>
+<include file="Public:alert" title="已经绑定" content="您已经绑定了学号，请勿重复！"  id="my-alert_redo"/>
+<include file="Public:alert" title="账户错误" content="你的学号或者密码错误！"  id="my-alert_jw_err"/>
+<!--模拟alert end-->
+
+<!--Modal Loading start-->
+<include file="Public:loading" content="正在提交..."  id="my-modal-loading"/>
+<!--Modal Loading end-->
+<!--<script src="//libs.useso.com/js/jquery/2.1.1/jquery.min.js"></script>-->
+<script src="http://lib.sinaapp.com/js/jquery/2.0.3/jquery-2.0.3.min.js"></script>
+<script src="__PUBLIC__/js/amazeui.min.js"></script>
+<script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script type="text/javascript">
+    wx.config({
+//        debug:true,
+        appId: '{$signPackage.appId}',
+        timestamp: {$signPackage.timestamp},
+        nonceStr: '{$signPackage.nonceStr}',
+        signature: '{$signPackage.signature}',
+        jsApiList: [
+        'hideAllNonBaseMenuItem',
+        'closeWindow',
+    ] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+    });
+
+    wx.ready(function () {
+        wx.hideAllNonBaseMenuItem();
+    });
+</script>
+<script type="text/javascript">
+    var jwid = $( 'input[name=jwid]' );
+    var jwpwd = $( 'input[name=jwpwd]' );
+    var jwpwd_encode = encodeURIComponent(jwpwd.val());
+    var url = "{:U('Bind/handle')}";
+    var openid = '{$openid}';
+    $(function(){
+        $('#submit_btn').on('click', function () {
+            if (jwid.val() == '') {
+                $('#my-alert_jwid').modal();
+                jwid.focus();
+                return;
+            }
+            if (jwpwd.val() == '') {
+                $('#my-alert_jwpwd').modal();
+                jwpwd.focus();
+                return;
+            }
+            $('#my-modal-loading').modal();
+            $.post(url,{jwid:jwid.val(),jwpwd:jwpwd.val(),openid:openid},function(data){
+                console.log(data);
+                if(data.status == 1){
+                    $('#my-modal-loading').modal('close');
+                    $('#my-alert').modal();
+                }else if(data.status == -2){
+                    $('#my-modal-loading').modal('close');
+                    $('#my-alert_jw_err').modal();
+                }else if(data.status == -1){
+                    $('#my-modal-loading').modal('close');
+                    $('#my-alert_err').modal();
+                }else if(data.status == 0){
+                    $('#my-modal-loading').modal('close');
+                    $('#my-alert_redo').modal();
+                }else{
+                    $('#my-modal-loading').modal('close');
+                    $('#my-alert_err_net').modal();
+                }
+            });
+        })
+
+        $('#my-alert').on('closed.modal.amui', function(){
+            wx.closeWindow();
+        });
+        $('#my-alert_redo').on('closed.modal.amui', function(){
+            wx.closeWindow();
+        });
+    })
+</script>
+
+</body>
+</html>

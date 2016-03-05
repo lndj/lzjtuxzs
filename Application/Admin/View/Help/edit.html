@@ -1,0 +1,66 @@
+<include file="Public:header" title="小助手后台管理-帮助内容配置修改" />
+<!-- sidebar start -->
+<include file="Public:siderbar"/>
+<!-- sidebar end -->
+
+<!-- content start -->
+<div class="admin-content">
+
+    <div class="am-cf am-padding">
+        <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">帮助内容配置修改</strong> / <small>Help Setting Modify</small></div>
+    </div>
+    <hr />
+    <div class="am-tabs am-margin" data-am-tabs>
+
+        <div class="am-tab-panel " id="tab2">
+            <form class="am-form" method="post" action="{:U('Help/editHandle')}">
+                <div class="am-g am-margin-top">
+                    <div class="am-u-sm-4 am-u-md-2 am-text-right">
+                        帮助编号/ID ：
+                    </div>
+                    <div class="am-u-sm-8 am-u-md-4 am-u-end col-end">
+                        <input class="am-form-field" type="text" name="id" value="{$help.id}" disabled>
+                    </div>
+                </div>
+
+                <div class="am-g am-margin-top">
+                    <div class="am-u-sm-4 am-u-md-2 am-text-right">
+                        标题/Title ：
+                    </div>
+                    <div class="am-u-sm-8 am-u-md-4 am-u-end col-end">
+                        <input class="am-form-field" type="text" name="title" value="{$help.title}">
+                    </div>
+                </div>
+
+                <div class="am-g am-margin-top">
+                    <div class="am-u-sm-4 am-u-md-2 am-text-right">
+                        帮助内容/Content ：
+                    </div>
+                    <div class="am-u-sm-8 am-u-md-6 am-u-end col-end">
+                        <textarea rows="4" name="content" placeholder="">{$help.content}</textarea>
+                    </div>
+                </div>
+
+                <div class="am-g am-margin-top">
+                    <div class="am-u-sm-4 am-u-md-2 am-text-right">
+                        标签/Tags：
+                    </div>
+                    <div class="am-u-sm-8 am-u-md-4 am-u-end col-end">
+                        <input class="am-form-field" type="text" name="tags" value="{$help.tags}">
+                    </div>
+                    <div class="am-u-sm-12 am-u-md-6"></div>
+                </div>
+                <!-- 隐藏域的方式传id，方便处理-->
+                <input type="hidden" name="id" id="id" value="{$help.id}">
+                <div class="am-margin">
+                    <button type="submit" class="am-btn am-btn-primary am-btn-xs">提交保存</button>
+                    <button type="button" class="am-btn am-btn-primary am-btn-xs"><a href="{:U('Help/index')}" style="color: white;">放弃保存</a></button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- content end -->
+<include file="Public:footer" />
+

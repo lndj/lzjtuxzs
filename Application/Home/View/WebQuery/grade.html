@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>成绩查询 | 网页版</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="renderer" content="webkit">
+    <meta name="keyword" content="兰州交通大学小助手,兰州交通大学,小助手,微信,公众平台,查成绩,微信查成绩,微信查课表">
+    <meta name="description" content="兰州交通大学小助手，交大最大的工具+社交型微信公众平台，服务25000交大师生。">
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+    <link rel="alternate icon" type="image/png" href="__PUBLIC__/i/favicon.ico">
+    <link rel="stylesheet" href="__PUBLIC__/css/amazeui.min.css"/>
+</head>
+<body>
+<header class="am-topbar">
+    <h1 class="am-topbar-brand">
+        <a href="#">{$header}</a>
+    </h1>
+    <div class="am-topbar-right">
+        <button class="am-btn am-btn-default am-topbar-btn am-round am-btn-sm" data-am-offcanvas="{target: '#doc-oc-demo2', effect: 'overlay'}">选择学年</button>
+    </div>
+</header>
+
+
+<!-- 侧边栏内容 -->
+<div id="doc-oc-demo2" class="am-offcanvas">
+    <div class="am-offcanvas-bar">
+        <div class="am-offcanvas-content">
+            <h2 class="am-text-center">选择学年学期</h2>
+            <button class="am-btn am-btn-success am-round am-btn-block"><a href="{:U('WebQuery/grade',array( 'school_year' => 0,'term' => 0,'uid' => $uid ) )}">历年成绩</a></button>
+            <foreach name="year_unique" item="v">
+                <button class="am-btn am-btn-success am-round am-btn-block"><a href="{:U('WebQuery/grade',array( 'school_year' => $v,'term' => 1,'uid' => $uid ) )}">{$v}学年第1学期</a></button>
+                <button class="am-btn am-btn-success am-round am-btn-block"><a href="{:U('WebQuery/grade',array( 'school_year' => $v,'term' => 2,'uid' => $uid ) )}">{$v}学年第2学期</a></button>
+            </foreach>
+            <button class="am-btn am-btn-success am-round am-btn-block"><a href="{:U('WebQuery/grade',array( 'school_year' => $last_year,'term' => 1,'uid' => $uid ) )}">{$last_year}学年第1学期</a></button>
+            <if condition="$is_2_term">
+                <button class="am-btn am-btn-success am-round am-btn-block"><a href="{:U('WebQuery/grade',array( 'school_year' => $last_year,'term' => 2,'uid' => $uid ) )}">{$last_year}学年第2学期</a></button>
+            </if>
+
+        </div>
+    </div>
+</div>
+
+<section data-am-widget="accordion" class="am-accordion am-accordion-gapped" data-am-accordion='{  }'>
+    <foreach name="grade" item="v">
+        <dl class="am-accordion-item">
+            <dt class="am-accordion-title">
+
+
+                <div class="am-g">
+                    <div class="am-u-sm-9 am-text-truncate">{$v.course}</div>
+                    <if condition="$v.makeup_grade gt 0 ">
+                        <div class="am-u-sm-3" style="color: greenyellow;">{$v.makeup_grade}</div>
+                    <elseif condition="v.rebuild_grade gt 0 "/>
+                        <div class="am-u-sm-3" style="color: red;">{$v.rebuild_grade}</div>
+                    <else />
+                        <div class="am-u-sm-3">{$v.grade}</div>
+                    </if>
+
+                </div>
+            </dt>
+            <dd class="am-accordion-bd am-collapse ">
+                <!-- 规避 Collapase 处理有 padding 的折叠内容计算计算有误问题， 加一个容器 -->
+                <div class="am-accordion-content">
+                    学年：{$v.school_year}<br />
+                    学期：{$v.term}<br />
+                    课程代码：{$v.course_code}<br />
+                    课程：{$v.course}<br />
+                    课程属性：{$v.course_attr}<br />
+                    学分：{$v.credits}<br />
+                    绩点：{$v.grade_point}<br />
+                    成绩：{$v.grade}<br />
+                    补考成绩：{$v.makeup_grade}<br />
+                    重修成绩：{$v.rebuild_grade}<br />
+                    开课学院：{$v.college}<br />
+
+                </div>
+            </dd>
+        </dl>
+    </foreach>
+</section>
+<hr>
+<footer class="am-link-muted am-text-center am-text-xs">
+    Designed By <a href="http://www.luoning.me">Luo Ning</a>
+</footer>
+
+<script src="__PUBLIC__/js/jquery.min.js"></script>
+<script src="__PUBLIC__/js/amazeui.min.js"></script>
+</body>
+</html>

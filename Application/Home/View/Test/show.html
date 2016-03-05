@@ -1,0 +1,301 @@
+<!doctype html>
+<html class="no-js">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="兰州交通大学小助手2015校园招聘信息，By 罗宁">
+    <meta name="keywords" content="招聘 兰州交通大学小助手 罗宁">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>个人中心</title>
+    <!-- Set render engine for 360 browser -->
+    <meta name="renderer" content="webkit">
+    <!-- No Baidu Siteapp-->
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+    <!-- <link rel="icon" type="image/png" href="assets/i/favicon.png"> -->
+    <link rel="stylesheet" href="http://cdn.amazeui.org/amazeui/2.4.2/css/amazeui.min.css">
+    <!--<script>-->
+        <!--document.write('<link rel="stylesheet" href="__PUBLIC__/css/wx.min.css?' + (+new Date()) + '">');-->
+    <!--</script>-->
+    <style rel="stylesheet">
+        .headinfo{
+            position: relative;
+            text-align:center;
+            margin:0 auto;
+            margin-top: -180px;
+            margin-bottom: 60px;
+        }
+        .headinfo p{
+            margin-top: 7px;
+            color:#e5e5e5;
+            font-family: "Source Code Pro","FontAwesome", sans-serif;
+            font-size: 17px;
+        }
+        .headbackground{
+            margin: 0;
+            padding: 0;
+            z-index: -1;
+        }
+        .am-icon-mars {
+            color: #eda4a2;
+        }
+        .am-icon-venus {
+            color: #c7254e;
+        }
+        .am-icon-user {
+            color: #aa4b00;
+        }
+    </style>
+</head>
+<body>
+
+<div class="headbackground">
+    <img src="{$defaultHeadBackground.config}" class="am-img-responsive" alt=""/>
+    <div class="headinfo">
+        <img class="am-img-thumbnail am-circle" src="{$userdata.headimgurl|default=$defaultHeadurl.config}" width="100" height="100"/>
+        <p>{$userdata.nickname|default="无名氏"}&nbsp;
+        <if condition="$userdata.sex eq 1"><span class="am-icon-mars"></span>
+        <elseif condition="$userdata.sex eq 2"/><span class="am-icon-venus"></span>
+        <else /><span class="am-icon-user"></span>
+        </if>
+
+    </div>
+</div>
+
+<div class="am-tabs" id="doc-my-tabs">
+    <ul class="am-tabs-nav am-nav am-nav-tabs am-nav-justify">
+        <li class="am-active"><a href="">周一</a></li>
+        <li><a href="">周二</a></li>
+        <li><a href="">周三</a></li>
+        <li><a href="">周四</a></li>
+        <li><a href="">周五</a></li>
+    </ul>
+    <div class="am-tabs-bd">
+        <div class="am-tab-panel am-active">城市：{$userdata.city}<br/>省份：{$userdata.province}</div>
+        <div class="am-tab-panel">
+            马克思什么鬼课<br/>周四第5,6节<br>罗老师<br>5-2201<br>------------<br>
+            给排水工程<br/>周四第7,8节<br>罗老师<br>5-302
+        </div>
+        <div class="am-tab-panel">
+            <div class="am-panel am-panel-default">
+                <div class="am-panel-hd">马克思什么鬼课</div>
+                <div class="am-panel-bd">
+                    周三第5,6节<br>罗老师<br>5-2201
+                </div>
+            </div>
+            <div class="am-panel am-panel-default">
+                <div class="am-panel-hd">大学英语3</div>
+                <div class="am-panel-bd">
+                    周三第5,6节<br>罗老师<br>5-2201
+                </div>
+            </div>
+
+
+        </div>
+
+        <div class="am-tab-panel">
+
+            <ul class="am-list">
+                <li><a href="#">马克思什么鬼课<br/>周四第5,6节<br>罗老师<br>5-2201</a></li>
+                <li><a href="#"> 给排水工程<br/>周四第7,8节<br>罗老师<br>5-302</a></li>
+                <li><a href="#"> 给排水工程<br/>周四第7,8节<br>罗老师<br>5-302</a></li>
+            </ul>
+        </div>
+
+        <div class="am-tab-panel">周五没课</div>
+    </div>
+</div>
+
+
+<div data-am-widget="tabs"
+     class="am-tabs am-tabs-d2"
+        >
+    <ul class="am-tabs-nav am-cf">
+        <li class="am-active"><a href="[data-tab-panel-0]">Mon</a></li>
+        <li class=""><a href="[data-tab-panel-1]">Tues</a></li>
+        <li class=""><a href="[data-tab-panel-2]">Wed</a></li>
+        <li class=""><a href="[data-tab-panel-2]">Thur</a></li>
+        <li class=""><a href="[data-tab-panel-2]">Fri</a></li>
+    </ul>
+    <div class="am-tabs-bd">
+        <div data-tab-panel-0 class="am-tab-panel am-active">
+            <ul class="am-list">
+                <li><a href="#">马克思什么鬼课<br/>周四第5,6节<br>罗老师<br>5-2201</a></li>
+                <li><a href="#"> 给排水工程<br/>周四第7,8节<br>罗老师<br>5-302</a></li>
+                <li><a href="#"> 给排水工程<br/>周四第7,8节<br>罗老师<br>5-302</a></li>
+            </ul>
+        </div>
+        <div data-tab-panel-1 class="am-tab-panel ">
+            【彩虹】那时候有多好，任雨打湿裙角。忍不住哼起，心爱的旋律。绿油油的树叶，自由地在说笑。燕子忙归巢，风铃在舞蹈。经过青春的草地，彩虹忽然升起。即使视线渐渐模糊，它也在我心里。就像爱过的旋律，没人能抹去。因为生命存在失望，歌唱，所以才要歌唱。
+        </div>
+        <div data-tab-panel-2 class="am-tab-panel ">
+
+
+            <div class="am-panel am-panel-default">
+                <div class="am-panel-hd">马克思什么鬼课</div>
+                <div class="am-panel-bd">
+                    周三第5,6节<br>罗老师<br>5-2201
+                </div>
+            </div>
+            <div class="am-panel am-panel-default">
+                <div class="am-panel-hd">大学英语3</div>
+                <div class="am-panel-bd">
+                    周三第5,6节<br>罗老师<br>5-2201
+                </div>
+            </div>
+
+
+
+        </div>
+        <div data-tab-panel-2 class="am-tab-panel ">
+            马克思原理<br/>周四第5,6节<br>罗老师<br>5-2201<br>------------<br>
+            给排水工程<br/>周四第7,8节<br>罗老师<br>5-302
+        </div>
+        <div data-tab-panel-2 class="am-tab-panel ">
+            马克思原理<br/>周四第5,6节<br>罗老师<br>5-2201<br>------------<br>
+            给排水工程<br/>周四第7,8节<br>罗老师<br>5-302
+        </div>
+    </div>
+</div>
+
+
+<div data-am-widget="navbar" class="am-navbar am-cf am-navbar-default "
+     id="">
+    <ul class="am-navbar-nav am-cf am-avg-sm-4">
+        <li >
+            <a href="sms:15101239065?body=约吗？" class="">
+                <img src="http://amazeui.b0.upaiyun.com/assets/i/cpts/navbar/Information.png" alt="消息"/>
+                <span class="am-navbar-label">消息</span>
+            </a>
+        </li>
+        <li >
+            <a href="tel:15101239065" class="">
+                <img src="http://amazeui.b0.upaiyun.com/assets/i/cpts/navbar/phone.png" alt="呼叫"/>
+                <span class="am-navbar-label">呼叫</span>
+            </a>
+        </li>
+        <li data-am-navbar-share>
+            <a href="###" class="">
+                <img src="http://amazeui.b0.upaiyun.com/assets/i/cpts/navbar/share.png" alt="分享"/>
+                <span class="am-navbar-label">分享</span>
+            </a>
+        </li>
+        <li >
+            <a href="http://www.luoning.me" class="">
+                <img src="http://amazeui.b0.upaiyun.com/assets/i/cpts/navbar/map.png" alt="地图"/>
+                <span class="am-navbar-label">地图</span>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+<!--此处开始使用wx.min.css-->
+<!-- wx-news -->
+<!--<div class="col-lg-4 col-sm-6">-->
+    <!--<div class="mobileframe">-->
+        <!--<div class="wx-form">-->
+            <!--<div class="wx-item">-->
+                <!--<label class="wx-name">问题和意见</label>-->
+                <!--<textarea class="wx-content" placeholder="请简要描述你的问题和意见"></textarea>-->
+            <!--</div>-->
+            <!--<div class="wx-item">-->
+                <!--<label class="wx-name">文本框自适应高度的方法</label>-->
+                <!--<div class="wx-content" contentEditable placeholder="这是一个带有 contentEditable 属性并模拟了 placeholder 属性的 div，它的特点是高度会自动随着文本的增加而升高，但提交表单时必须先用 javascript 获取其内容"></div>-->
+            <!--</div>-->
+            <!--<div class="wx-item">-->
+                <!--<label class="wx-name">上传照片</label>-->
+                <!--<div class="wx-content">-->
+                    <!--<div style="background-image: url(http://static.pexels.com/wp-content/uploads/2015/02/cliff-nature-river-4630-525x350.jpg)" class="wx-icon"></div>-->
+                    <!--<div style="background-image: url(http://static.pexels.com/wp-content/uploads/2015/02/bird-boat-heron-4490-525x350.jpg)" class="wx-icon"></div>-->
+                    <!--<div class="wx-plus"></div>-->
+                <!--</div>-->
+            <!--</div>-->
+            <!--<button class="wx-button wx-primary">进入公众号</button>-->
+            <!--<button class="wx-button wx-danger">取消关注</button>-->
+            <!--<button class="wx-button">举报</button>-->
+        <!--</div>-->
+    <!--</div>-->
+<!--</div>-->
+
+<!--[if (gte IE 9)|!(IE)]><!-->
+<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<!--<![endif]-->
+<!--[if lte IE 8 ]>
+<script src="http://libs.baidu.com/jquery/1.11.3/jquery.min.js"></script>
+<script src="http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js"></script>
+<script src="assets/js/amazeui.ie8polyfill.min.js"></script>
+<![endif]-->
+<script src="http://cdn.amazeui.org/amazeui/2.4.2/js/amazeui.min.js"></script>
+<script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+
+<script>
+    $(function() {
+        $('#doc-my-tabs').tabs();
+    })
+    $('#doc-my-tabs').find('a').on('opened.tabs.amui', function(e) {
+//       alert('[%s] 选项卡打开了');
+    })
+
+//    测试下本地存储
+
+//    $(document).ready(function(){
+//        var store = $.AMUI.store;
+////
+////        if (store.enabled) {
+////            alert('您的浏览器支持本地存储');
+////            return;
+////        }
+//        store.set('user', 'hello world');
+//        var user = store.get('user');
+//        alert(user);
+//    });
+</script>
+
+<script type="text/javascript">
+    wx.config({
+//        debug:true,
+        appId: '{$signPackage.appId}',
+        timestamp: {$signPackage.timestamp},
+        nonceStr: '{$signPackage.nonceStr}',
+        signature: '{$signPackage.signature}',
+        jsApiList: [
+            'onMenuShareTimeline',
+            'onMenuShareAppMessage',
+        ] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+    });
+
+    wx.ready(function () {
+        wx.onMenuShareTimeline({
+            title: '{$userdata.nickname|default="无名氏"}的个人中心', // 分享标题
+            link: 'http://wechat.lzjtuhand.com/index.php/Test/index', // 分享链接
+            imgUrl: '{$userdata.headimgurl}', // 分享图标
+            success: function () {
+                // 用户确认分享后执行的回调函数
+                alert('分享成功！');
+            },
+            cancel: function () {
+                // 用户取消分享后执行的回调函数
+                alert("您取消了分享！");
+            }
+        });
+
+        wx.onMenuShareAppMessage({
+            title: '{$userdata.nickname|default="无名氏"}的个人中心', // 分享标题
+            desc: '{$userdata.nickname|default="无名氏"}的精彩大学生活都在这里～快来开启你的吧！', // 分享描述
+            link: 'http://wechat.lzjtuhand.com/index.php/Test/index', // 分享链接
+            imgUrl: '{$userdata.headimgurl}', // 分享图标
+            type: '', // 分享类型,music、video或link，不填默认为link
+            dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+            success: function () {
+                // 用户确认分享后执行的回调函数
+                alert('分享成功！');
+            },
+            cancel: function () {
+                // 用户取消分享后执行的回调函数
+                alert("您取消了分享！");
+            }
+        });
+    });
+</script>
+</body>
+</html>

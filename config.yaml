@@ -1,0 +1,45 @@
+name: wxxzs
+version: 1
+handle:
+ - rewrite: if(!is_dir() && !is_file() && path~"^(.*)$") goto "index.php/$1"
+
+cron:
+    - description: everyday_free_classroom
+      url: Home/Cron/everyday_free_classroom
+      schedule: 20 0 * * *
+
+    - description: everyday_get_jiaowu_info
+      url: Home/Cron/everyday_get_jiaowu_info
+      schedule: 5 0 * * *
+
+    - description: get_jiaowu_userinfo
+      url: Home/Cron/get_jiaowu_userinfo
+      schedule: 0 */6 * * *
+
+    - description: everyday_get_user_attr
+      url: Home/Cron/everyday_get_user_attr
+      schedule: 0 0 * * *
+
+    - description: updateScheduleBySystem
+      url: Home/Cron/updateScheduleBySystem
+      schedule: * 1-6 29,30,31 1 *
+
+#    - description: bindOutWrongPass
+#      url: Home/Cron/bindOutWrongPass
+#      schedule: 20 0 * * *
+
+#    - description: updateExam_pre
+#      url: Home/Cron/updateExam_pre
+#      schedule: 50 0 9 1 *
+#
+#    - description: updateExam_next
+#      url: Home/Cron/updateExam_next
+#      schedule: 30 3 9 1 *
+
+#    - description: checkAllPassword
+#      url: Home/Cron/checkAllPassword
+#      schedule: * 2-6 * * *
+
+#    - description: weisuo
+#      url: Home/Cron/weisuo
+#      schedule: 0 * * 1 *

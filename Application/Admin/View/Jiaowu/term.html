@@ -1,0 +1,206 @@
+<include file="Public:header" title="小助手后台管理-个人中心配置" />
+<!-- sidebar start -->
+<include file="Public:siderbar"/>
+<!-- sidebar end -->
+<!-- content start -->
+<div class="admin-content">
+
+    <div class="am-cf am-padding">
+        <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">学年学期配置</strong> / <small>School year and Term Setting</small></div>
+    </div>
+
+    <div class="am-g">
+        <!--此处的适用于成绩等-->
+        <div class="am-u-sm-12 am-u-lg-4 am-u-md-6">
+            <form class="am-form">
+                <fieldset>
+                    <div class="am-form-group">
+                        <label for="doc-ds-ipt-1">当前学年</label>
+                        <input type="text" id="doc-ds-ipt-1" name="school_year_now" class="am-form-field" value="{:getS('school_year_now')}">
+                    </div>
+                    <div class="am-form-group">
+                        <label for="doc-ds-ipt-1">当前学期</label>
+                        <input type="text" id="doc-ds-ipt-1" name="term_now" class="am-form-field" value="{:getS('term_now')}">
+                    </div>
+                </fieldset>
+            </form>
+            <button type="button" style="margin-top: -30px;margin-left: 10px;" class="am-btn am-btn-primary am-btn-fl" id="save-btn-1"> 保存修改 </button>
+            <br />
+            <br />
+        </div>
+
+        <!--设置课表的-->
+        <div class="am-u-sm-12 am-u-lg-4 am-u-md-6">
+            <form class="am-form">
+                <fieldset>
+                    <div class="am-form-group">
+                        <label for="doc-ds-ipt-1">当前学年（课表）</label>
+                        <input type="text" id="doc-ds-ipt-1" name="SCHEDULE_SCHOOL_YEAR" class="am-form-field" value="{:getS('SCHEDULE_SCHOOL_YEAR')}">
+                    </div>
+                    <div class="am-form-group">
+                        <label for="doc-ds-ipt-1">当前学期（课表）</label>
+                        <input type="text" id="doc-ds-ipt-1" name="SCHEDULE_TERM" class="am-form-field" value="{:getS('SCHEDULE_TERM')}">
+                    </div>
+                </fieldset>
+            </form>
+            <button type="button" style="margin-top: -30px;margin-left: 10px;" class="am-btn am-btn-primary am-btn-fl" id="save-btn-2"> 保存修改 </button>
+            <br />
+            <br />
+        </div>
+
+        <!--设置补考的-->
+        <div class="am-u-sm-12 am-u-lg-4 am-u-md-6 am-u-end">
+            <form class="am-form">
+                <fieldset>
+                    <div class="am-form-group">
+                        <label for="doc-ds-ipt-1">当前学年（补考）</label>
+                        <input type="text" id="doc-ds-ipt-1" name="MAKEUP_SCHOOL_YEAR" class="am-form-field" value="{:getS('MAKEUP_SCHOOL_YEAR')}">
+                    </div>
+                    <div class="am-form-group">
+                        <label for="doc-ds-ipt-1">当前学期（补考）</label>
+                        <input type="text" id="doc-ds-ipt-1" name="MAKEUP_TERM" class="am-form-field" value="{:getS('MAKEUP_TERM')}">
+                    </div>
+                </fieldset>
+            </form>
+            <button type="button" style="margin-top: -30px;margin-left: 10px;" class="am-btn am-btn-primary am-btn-fl" id="save-btn-3"> 保存修改 </button>
+            <br />
+            <br />
+        </div>
+
+    </div>
+    <p style="margin-left: 25px;">注：<span style="color: red;">当设置的当前学期和课表学期不一样时，将以POST方式获取课表数据</span>，当在正常学期中的时候，两者应设置一样，便于直接GET获取。</p>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/><br/>
+</div>
+
+<include file="Public:confirm" id="my-confirm" title="修改学年学期" content="确定要修改学年学期设置吗？"/>
+<include file="Public:loading" content="正在提交..."  id="my-modal-loading"/>
+
+<include file="Public:alert" title="温馨提示" content="缺少内容"  id="my-alert"/>
+
+<script type="text/javascript">
+    var setUrl = "{:U('Jiaowu/handleTerm')}";
+    var setUrlSchedule = "{:U('Jiaowu/handleTermSchedule')}";
+    var setUrlMakeup = "{:U('Jiaowu/handleTermMakeup')}";
+
+
+
+    var term_now = $( 'input[name=term_now]' );
+    var school_year_now = $( 'input[name=school_year_now]' );
+
+    var SCHEDULE_SCHOOL_YEAR = $( 'input[name=SCHEDULE_SCHOOL_YEAR]' );
+    var SCHEDULE_TERM = $( 'input[name=SCHEDULE_TERM]' );
+
+    var MAKEUP_SCHOOL_YEAR = $( 'input[name=MAKEUP_SCHOOL_YEAR]' );
+    var MAKEUP_TERM = $( 'input[name=MAKEUP_TERM]' );
+
+
+    $(function() {
+        $("#save-btn-1").on('click', function() {
+
+            $('#my-confirm').modal({
+                relatedTarget: this,
+                onConfirm: function(options) {
+                    $('input').removeAttr("readonly");
+
+                    if (term_now.val() == '') {
+                        $('#my-alert').modal();
+                        term_now.focus();
+                        return;
+                    }
+                    if (school_year_now.val() == '') {
+                        $('#my-alert').modal();
+                        school_year_now.focus();
+                        return;
+                    }
+                    $('#my-modal-loading').modal();
+                    $.post(setUrl,{term_now:term_now.val(),school_year_now:school_year_now.val()},function(data){
+                        console.log(data);
+                        if(data.status == 1){
+                            $('#my-modal-loading').modal('close');
+                            location.reload();
+                        }
+                    });
+
+
+                },
+                // closeOnConfirm: false,
+                onCancel: function() {
+//                    alert('算求，不删除了！');
+                }
+            });
+        });
+
+        /*课表*/
+        $("#save-btn-2").on('click', function() {
+            $('#my-confirm').modal({
+                relatedTarget: this,
+                onConfirm: function (options) {
+                    if (SCHEDULE_TERM.val() == '') {
+                        $('#my-alert').modal();
+                        SCHEDULE_TERM.focus();
+                        return;
+                    }
+                    if (SCHEDULE_SCHOOL_YEAR.val() == '') {
+                        $('#my-alert').modal();
+                        SCHEDULE_SCHOOL_YEAR.focus();
+                        return;
+                    }
+                    $('#my-modal-loading').modal();
+                    $.post(setUrlSchedule, {SCHEDULE_TERM: SCHEDULE_TERM.val(), SCHEDULE_SCHOOL_YEAR: SCHEDULE_SCHOOL_YEAR.val()}, function (data) {
+                        console.log(data);
+                        if (data.status == 1) {
+                            $('#my-modal-loading').modal('close');
+                            location.reload();
+                        }
+                    });
+                },
+                // closeOnConfirm: false,
+                onCancel: function () {
+                    //alert('算求，不删除了！');
+                }
+            });
+        });
+
+        /*补考*/
+        $("#save-btn-3").on('click', function() {
+            $('#my-confirm').modal({
+                relatedTarget: this,
+                onConfirm: function (options) {
+                    if (MAKEUP_TERM.val() == '') {
+                        $('#my-alert').modal();
+                        MAKEUP_TERM.focus();
+                        return;
+                    }
+                    if (MAKEUP_SCHOOL_YEAR.val() == '') {
+                        $('#my-alert').modal();
+                        MAKEUP_SCHOOL_YEAR.focus();
+                        return;
+                    }
+                    $('#my-modal-loading').modal();
+                    $.post(setUrlMakeup, {MAKEUP_TERM: MAKEUP_TERM.val(), MAKEUP_SCHOOL_YEAR: MAKEUP_SCHOOL_YEAR.val()}, function (data) {
+                        console.log(data);
+                        if (data.status == 1) {
+                            $('#my-modal-loading').modal('close');
+//                            location.reload();
+                        }
+                    });
+                },
+                // closeOnConfirm: false,
+                onCancel: function () {
+                    //alert('算求，不删除了！');
+                }
+            });
+        });
+
+    });
+</script>
+
+<!-- content end -->
+<include file="Public:footer" />

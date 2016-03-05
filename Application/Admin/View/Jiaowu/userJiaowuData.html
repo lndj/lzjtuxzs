@@ -1,0 +1,223 @@
+<include file="Public:header" title="小助手后台管理-用户教务数据" />
+<!-- sidebar start -->
+<include file="Public:siderbar"/>
+<!-- sidebar end -->
+<!-- content start -->
+<div class="admin-content">
+
+    <div class="am-cf am-padding">
+        <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">用户教务数据</strong> / <small>User Jiaowu Data</small></div>
+    </div>
+
+    <div class="am-tabs am-margin" data-am-tabs>
+        <ul class="am-tabs-nav am-nav am-nav-tabs">
+            <li><a href="#tab1">成绩</a></li>
+            <li><a href="#tab2">课表</a></li>
+            <li><a href="#tab3">补考安排</a></li>
+            <li><a href="#tab4">考试安排</a></li>
+        </ul>
+
+        <div class="am-tabs-bd">
+            <div class="am-tab-panel am-fade" id="tab1">
+                <table class="am-table am-table-striped am-table-hover table-main">
+                    <thead>
+                        <tr>
+                            <th class="table-id">ID</th>
+                            <th class="table-text">学年</th>
+                            <th class="table-title">学期</th>
+                            <th class="table-type">课程</th>
+                            <th class="table-text">课程属性</th>
+                            <th class="table-text">学分</th>
+                            <th class="table-text">绩点</th>
+                            <th class="table-text">成绩</th>
+                            <th class="table-text">补考成绩</th>
+                            <th class="table-text">重修成绩</th>
+                            <th class="table-text">更新时间</th>
+                            <th class="table-set">操作</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <foreach name="grade" item="v">
+                            <tr>
+                                <td>{$v.id}</td>
+                                <td>{$v.school_year}</td>
+                                <td>{$v.term}</td>
+                                <td>{$v.course}</td>
+                                <td>{$v.course_attr}</td>
+                                <td>{$v.credits}</td>
+                                <td>{$v.grade_point}</td>
+                                <td>{$v.grade}</td>
+                                <td>{$v.makeup_grade}</td>
+                                <td>{$v.rebuild_grade}</td>
+                                <td>{$v.createtime|date="y-m-d H:i:s",###}</td>
+                                <td>
+                                    <div class="am-dropdown" data-am-dropdown>
+                                        <button class="am-btn am-btn-default am-btn-xs am-dropdown-toggle" data-am-dropdown-toggle><span class="am-icon-cog"></span> <span class="am-icon-caret-down"></span></button>
+                                        <ul class="am-dropdown-content">
+                                            <!--<li><a href="javascript:void(0);" class="update" data-id="{$v.id}">更新教务数据</a></li>-->
+                                            <!--<li><a href="javascript:void(0);" class="jwpwd-confirm" data-id="{$v.id}">查看密码</a></li>-->
+                                        </ul>
+                                    </div>
+                                </td>
+                            </tr>
+                        </foreach>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="am-tab-panel am-fade" id="tab2">
+
+                <table class="am-table am-table-bordered am-table-centered">
+                    <tr>
+                        <th></th>
+                        <th>周一</th>
+                        <th>周二</th>
+                        <th>周三</th>
+                        <th>周四</th>
+                        <th>周五</th>
+                        <th>周六</th>
+                        <th>周日</th>
+                    </tr>
+                    <tr>
+                        <td class="am-text-middle">第一讲</td>
+                        <td class="am-text-middle">{$mon.0|nl2br}</td>
+                        <td class="am-text-middle">{$tues.0|nl2br}</td>
+                        <td class="am-text-middle">{$wed.0|nl2br}</td>
+                        <td class="am-text-middle">{$thur.0|nl2br}</td>
+                        <td class="am-text-middle">{$fri.0|nl2br}</td>
+                        <td class="am-text-middle">{$sat.0|nl2br}</td>
+                        <td class="am-text-middle">{$sun.0|nl2br}</td>
+                    </tr>
+                    <tr>
+                        <td class="am-text-middle">第二讲</td>
+                        <td class="am-text-middle">{$mon.1|nl2br}</td>
+                        <td class="am-text-middle">{$tues.1|nl2br}</td>
+                        <td class="am-text-middle">{$wed.1|nl2br}</td>
+                        <td class="am-text-middle">{$thur.1|nl2br}</td>
+                        <td class="am-text-middle">{$fri.1|nl2br}</td>
+                        <td class="am-text-middle">{$sat.1|nl2br}</td>
+                        <td class="am-text-middle">{$sun.1|nl2br}</td>
+                    </tr>
+                    <tr>
+                        <td class="am-text-middle">第三讲</td>
+                        <td class="am-text-middle">{$mon.2|nl2br}</td>
+                        <td class="am-text-middle">{$tues.2|nl2br}</td>
+                        <td class="am-text-middle">{$wed.2|nl2br}</td>
+                        <td class="am-text-middle">{$thur.2|nl2br}</td>
+                        <td class="am-text-middle">{$fri.2|nl2br}</td>
+                        <td class="am-text-middle">{$sat.2|nl2br}</td>
+                        <td class="am-text-middle">{$sun.2|nl2br}</td>
+                    </tr>
+                    <tr>
+                        <td class="am-text-middle">第四讲</td>
+                        <td class="am-text-middle">{$mon.3|nl2br}</td>
+                        <td class="am-text-middle">{$tues.3|nl2br}</td>
+                        <td class="am-text-middle">{$wed.3|nl2br}</td>
+                        <td class="am-text-middle">{$thur.3|nl2br}</td>
+                        <td class="am-text-middle">{$fri.3|nl2br}</td>
+                        <td class="am-text-middle">{$sat.3|nl2br}</td>
+                        <td class="am-text-middle">{$sun.3|nl2br}</td>
+                    </tr>
+                    <tr>
+                        <td class="am-text-middle">第五讲</td>
+                        <td class="am-text-middle">{$mon.4|nl2br}</td>
+                        <td class="am-text-middle">{$tues.4|nl2br}</td>
+                        <td class="am-text-middle">{$wed.4|nl2br}</td>
+                        <td class="am-text-middle">{$thur.4|nl2br}</td>
+                        <td class="am-text-middle">{$fri.4|nl2br}</td>
+                        <td class="am-text-middle">{$sat.4|nl2br}</td>
+                        <td class="am-text-middle">{$sun.4|nl2br}</td>
+                    </tr>
+                </table>
+
+            </div>
+
+            <div class="am-tab-panel am-fade" id="tab3">
+
+                <table class="am-table am-table-striped am-table-hover table-main">
+                    <thead>
+                    <tr>
+                        <th class="table-id">ID</th>
+                        <th class="table-text">选课课号</th>
+                        <th class="table-title">课程名称</th>
+                        <th class="table-type">考试时间</th>
+                        <th class="table-text">考试地点</th>
+                        <th class="table-text">座位号</th>
+                        <th class="table-text">更新时间</th>
+                        <th class="table-set">操作</th>
+                    </tr>
+                    </thead>
+
+                    <tbody>
+                    <foreach name="makeup" item="v">
+                        <tr>
+                            <td>{$v.id}</td>
+                            <td>{$v.choose_course_num}</td>
+                            <td>{$v.course}</td>
+                            <td>{$v.exam_date}</td>
+                            <td>{$v.exam_address}</td>
+                            <td>{$v.position_num}</td>
+                            <td>{$v.createtime|date="y-m-d H:i:s",###}</td>
+                            <td>
+                                <div class="am-dropdown" data-am-dropdown>
+                                    <button class="am-btn am-btn-default am-btn-xs am-dropdown-toggle" data-am-dropdown-toggle><span class="am-icon-cog"></span> <span class="am-icon-caret-down"></span></button>
+                                    <ul class="am-dropdown-content">
+                                        <!--<li><a href="javascript:void(0);" class="update" data-id="{$v.id}">更新教务数据</a></li>-->
+                                        <!--<li><a href="javascript:void(0);" class="jwpwd-confirm" data-id="{$v.id}">查看密码</a></li>-->
+                                    </ul>
+                                </div>
+                            </td>
+                        </tr>
+                    </foreach>
+                    </tbody>
+                </table>
+
+            </div>
+
+            <div class="am-tab-panel am-fade" id="tab4">
+                <table class="am-table am-table-striped am-table-hover table-main">
+                    <thead>
+                        <tr>
+                            <th class="table-id">ID</th>
+                            <th class="table-text">选课课号</th>
+                            <th class="table-title">课程名称</th>
+                            <th class="table-type">考试时间</th>
+                            <th class="table-text">考试地点</th>
+                            <th class="table-text">座位号</th>
+                            <th class="table-text">更新时间</th>
+                            <th class="table-set">操作</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <foreach name="exam" item="v">
+                            <tr>
+                                <td>{$v.id}</td>
+                                <td>{$v.choose_course_num}</td>
+                                <td>{$v.course}</td>
+                                <td>{$v.exam_date}</td>
+                                <td>{$v.exam_address}</td>
+                                <td>{$v.position_num}</td>
+                                <td>{$v.createtime|date="y-m-d H:i:s",###}</td>
+                                <td>
+                                    <div class="am-dropdown" data-am-dropdown>
+                                        <button class="am-btn am-btn-default am-btn-xs am-dropdown-toggle" data-am-dropdown-toggle><span class="am-icon-cog"></span> <span class="am-icon-caret-down"></span></button>
+                                        <ul class="am-dropdown-content">
+                                            <!--<li><a href="javascript:void(0);" class="update" data-id="{$v.id}">更新教务数据</a></li>-->
+                                            <!--<li><a href="javascript:void(0);" class="jwpwd-confirm" data-id="{$v.id}">查看密码</a></li>-->
+                                        </ul>
+                                    </div>
+                                </td>
+                            </tr>
+                        </foreach>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!-- content end -->
+<include file="Public:footer" />

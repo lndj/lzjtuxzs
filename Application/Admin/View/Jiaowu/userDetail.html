@@ -1,0 +1,84 @@
+<include file="Public:header" title="小助手后台管理-教务用户详细资料" />
+<!-- sidebar start -->
+<include file="Public:siderbar"/>
+<!-- sidebar end -->
+<!-- content start -->
+<div class="admin-content">
+
+    <div class="am-cf am-padding">
+        <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">教务用户详细资料</strong> / <small>User Detail</small></div>
+    </div>
+
+
+    <div class="am-g">
+        <div class="am-u-sm-12">
+            <table class="am-table am-table-bordered am-table-centered am-table-compact">
+                <!--<thead>-->
+                    <!--<tr>-->
+                        <!--<th>设置项</th>-->
+                        <!--<th>key</th>-->
+                        <!--<th>设置内容（value）</th>-->
+                        <!--<th>管理</th>-->
+                    <!--</tr>-->
+                <!--</thead>-->
+                <tbody>
+                    <tr>
+                        <td rowspan="4" class="am-text-middle"><img src="{$userinfo.jw_picture}" alt="" style="margin-left: -10px;margin-right: -10px;"></td>
+                        <td class="am-text-middle">姓名</td>
+                        <td class="am-text-middle">{$userinfo.realname}</td>
+                        <td class="am-text-middle">性别</td>
+                        <td class="am-text-middle">
+                            <if condition="$userinfo.sex eq 1">
+                                男
+                            <elseif condition="$userinfo.sex eq 2"/>女
+                            <else />未知
+                            </if>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="am-text-middle">民族</td>
+                        <td class="am-text-middle">{$userinfo.nation|default="未知"}</td>
+                        <td class="am-text-middle">生日</td>
+                        <td class="am-text-middle">{$userinfo.birthday}</td>
+                    </tr>
+                    <tr>
+                        <td class="am-text-middle">学号</td>
+                        <td class="am-text-middle">{$userinfo.jwid}</td>
+                        <td class="am-text-middle">政治面貌</td>
+                        <td class="am-text-middle">{$userinfo.political|default="未知"}</td>
+                    </tr>
+                    <tr>
+                        <td class="am-text-middle">学历</td>
+                        <td class="am-text-middle">{$userinfo.degree}</td>
+                        <td class="am-text-middle">学制</td>
+                        <td class="am-text-middle">{$userinfo.school_system}</td>
+                    </tr>
+                    <tr>
+                        <td class="am-text-middle">学院</td>
+                        <td class="am-text-middle" colspan="2">{$userinfo.college}</td>
+                        <td class="am-text-middle">身份证号码</td>
+                        <td class="am-text-xt-middle">{$userinfo.id_num}</td>
+                    </tr>
+                    <tr>
+                        <td class="am-text-middle">专业</td>
+                        <td class="am-text-middle" colspan="2">{$userinfo.profession}</td>
+                        <td class="am-text-middle">openid</td>
+                        <td class="am-text-xt-middle">{$userinfo.openid}</td>
+                    </tr>
+                    <tr>
+                        <td class="am-text-middle">班级</td>
+                        <td class="am-text-middle" colspan="2">{$userinfo.class}</td>
+                        <td class="am-text-middle">来源地区</td>
+                        <td class="am-text-xt-middle">{$userinfo.fromarea}</td>
+                    </tr>
+
+                </tbody>
+            </table>
+            <hr />
+            <!--<p>注：以上考试与成绩的文案注意要添加对更新功能的提示！</p>-->
+        </div>
+    </div>
+</div>
+
+<!-- content end -->
+<include file="Public:footer" />

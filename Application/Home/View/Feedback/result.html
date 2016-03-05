@@ -1,0 +1,95 @@
+<!doctype html>
+<html class="no-js">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="兰州交通大学小助手反馈通道">
+    <meta name="keywords" content="微信反馈,小助手反馈">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>兰州交通大学小助手</title>
+    <!-- Set render engine for 360 browser -->
+    <meta name="renderer" content="webkit">
+    <!-- No Baidu Siteapp-->
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+    <link rel="alternate icon" type="image/png" href="__PUBLIC__/i/favicon.ico">
+    <link rel="stylesheet" href="__PUBLIC__/css/amazeui.min.css">
+</head>
+<body>
+
+<header data-am-widget="header" class="am-header am-header-default">
+    <h1 class="am-header-title">
+        <a href="#title-link" class="">反馈处理结果</a>
+    </h1>
+</header>
+
+<section class="am-panel am-panel-success">
+    <header class="am-panel-hd">
+        <h3 class="am-panel-title">小助手回复：</h3>
+    </header>
+    <div class="am-panel-bd">
+        {$reply_content.content}
+    </div>
+    <footer class="am-panel-footer">您的问题:</footer>
+    <div class="am-panel-bd">
+        {$feedback_content.content}
+    </div>
+</section>
+
+<button type="button" class="am-btn am-btn-primary am-round am-btn-block" id="submit_btn"><a href="{:U('Feedback/index')}" style="color: white;">继续提问</a></button>
+
+<footer data-am-widget="footer" class="am-footer am-footer-default" data-am-footer="{  }">
+
+    <div class="am-footer-miscs ">
+        <p>Designed By
+            <a href="http://www.luoning.me/" title="Luo Ning" target="_blank" class="">Luo Ning</a></p>
+        <p> CopyRight ©2015 All Rights Reserved.</p>
+        <p>陇ICP备15000561号</p>
+    </div>
+</footer>
+
+
+<!--弹出模拟alert start-->
+<include file="Public:alert" title="温馨提示" content="发生一点错误，请再试一次～"  id="my-alert_err"/>
+<include file="Public:alert" title="温馨提示" content="已经成功提交给小助手！"  id="my-alert"/>
+<include file="Public:alert" title="缺少内容" content="说点什么吧！"  id="my-alert_suggestion"/>
+<include file="Public:alert" title="请选择类型" content="选择一个类型，这样小助手才能更好的解决您的问题！"  id="my-alert_type"/>
+<!--模拟alert end-->
+
+<!--Modal Loading start-->
+<include file="Public:loading" content="正在提交..."  id="my-modal-loading"/>
+<!--Modal Loading end-->
+
+
+<!--[if lt IE 9]>
+<script src="//libs.useso.com/js/jquery/1.11.1/jquery.min.js"></script>
+<script src="//cdn.staticfile.org/modernizr/2.8.3/modernizr.js"></script>
+<script src="/js/polyfill/rem.min.js"></script>
+<script src="//libs.useso.com/js/respond.js/1.4.2/respond.min.js"></script>
+<script src="//cdn.amazeui.org/amazeui/2.1.0/js/amazeui.legacy.min.js"></script>
+<![endif]-->
+
+<!--[if (gte IE 9)|!(IE)]><!-->
+
+<script src="//libs.useso.com/js/jquery/2.1.1/jquery.min.js"></script>
+<script src="__PUBLIC__/js/amazeui.min.js"></script>
+<script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<!--<![endif]-->
+<script type="text/javascript">
+    wx.config({
+//        debug:true,
+        appId: '{$signPackage.appId}',
+        timestamp: {$signPackage.timestamp},
+        nonceStr: '{$signPackage.nonceStr}',
+        signature: '{$signPackage.signature}',
+        jsApiList: [
+        'hideAllNonBaseMenuItem',
+        'closeWindow',
+    ] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+    });
+
+    wx.ready(function () {
+        wx.hideAllNonBaseMenuItem();
+    });
+</script>
+</body>
+</html>
